@@ -11,4 +11,7 @@ import { connectDB } from "./config/database.js";
       console.log(`Server is running on ${port}`);
     });
 
- })();
+  } catch (error) {
+    console.error("Error starting the server:", error);
+  }
+})();

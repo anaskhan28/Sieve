@@ -1,5 +1,5 @@
 import express from "express";
-import cookieParser from "cookie-parser";
+// import cookieParser from "cookie-parser";
 import session from "express-session";
 import bodyParser from "body-parser";
 import cors from "cors";
@@ -12,6 +12,9 @@ import passport from "passport";
 import morgan from "morgan";
 import expressSanitizer from "express-sanitizer";
 import { config } from "dotenv";
+// import googleAuthRoutes from './routes/googleAuthRoutes.js'
+import googleAuthRoutes from './routes/googleAuthRoutes.js'
+
 
 config({ path: "./config/config.env" });
 
@@ -21,13 +24,14 @@ const __dirname = path.dirname(__filename);
 
 // importing middleWares
 
-// const corsOptions = {
-//   origin: ["http://sieve.test"],
-//   optionsSuccessStatus: 200,
-// };
+const corsOptions = {
+  origin: ["http://localhost:3000"],
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
 
-app.use(cors());
-app.use(cookieParser());
+app.use(cors(corsOptions));
+// app.use(cookieParser());
 // app.use(flash());
 
 app.use(
@@ -63,46 +67,58 @@ app.use(express.static(__dirname + "/public"));
 app.use('/uploads', express.static(path.join(__dirname, 'public', 'uploads')));
 app.use(passport.initialize());
 app.use(passport.session())
-app.use(flash());
+// app.use(flash());
 app.use(expressSanitizer());
 app.use(morgan("combined", { stream: accessLogStream }));
 
-app.use(function (req, res, next) {
-  res.locals.currentUser = req.user || null;
-  res.locals.username = req.user ? req.user.username
-      : req.user.createdBy.username
-    : null;
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.locals.currentUser = req.user || null;
+//   res.locals.username = req.user ? req.user.username
+//       : req.user.createdBy.username
+//     : null;
+//   next();
+// });
+// app.use(function (req, res, next) {
+//   res.locals.currentUser = req.user || null;
+//   res.locals.username = req.user
+//     ? req.user.username
+//     : req.user && req.user.createdBy
+//       ? req.user.createdBy.username
+//       : null;
+//   next();
+// });
+
+// app.use('/',googleAuthRoutes)
 
 // User route imports
-import userAuthRoutes from "./routes/user/authRoute.js";
-app.use("/api/user/auth", userAuthRoutes);
+// import googleOauth from "./routes/user/googleAuthRoutes.js";
+// app.use("/api/user/auth", googleOauth);
+googleAuthRoutes(app)
 
 // Admin Routes
-import adminPrimaryRoutes from "./routes/admin/primaryRoute.js";
-app.use("/api/admin/", adminPrimaryRoutes);
+// import adminPrimaryRoutes from "./routes/admin/primaryRoute.js";
+// app.use("/api/admin/", adminPrimaryRoutes);
 
-// util routes
-import utilsRoute from './routes/user/utilsRoute.js';
-app.use("/api/utils/", utilsRoute);
+// // util routes
+// import utilsRoute from './routes/user/utilsRoute.js';
+// app.use("/api/utils/", utilsRoute);
 
-// class routes
-import classRoute from './routes/class/primaryRoute.js';
-app.use("/api/class/", classRoute);
+// // class routes
+// import classRoute from './routes/class/primaryRoute.js';
+// app.use("/api/class/", classRoute);
 
-// question routes
-import questionRoute from './routes/class/questionRoute.js';
-app.use("/api/question/", questionRoute);
+// // question routes
+// import questionRoute from './routes/class/questionRoute.js';
+// app.use("/api/question/", questionRoute);
 
-// report routes
-import reportRoute from './routes/class/reportRoute.js';
-app.use("/api/report/", reportRoute);
+// // report routes
+// import reportRoute from './routes/class/reportRoute.js';
+// app.use("/api/report/", reportRoute);
 
-// test routes
-import testRoute from './routes/class/testRoute.js';
-import { getFileStream } from "./config/storageObject.js";
-app.use("/api/test/", testRoute);
+// // test routes
+// import testRoute from './routes/class/testRoute.js';
+// import { getFileStream } from "./config/storageObject.js";
+// app.use("/api/test/", testRoute);
 
 // // Teacher route imports
 // import teacherRoutes from "./routes/teacher/primaryRoute.js";
