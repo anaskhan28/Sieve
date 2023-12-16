@@ -3,6 +3,10 @@ import validator from "validator";
 
 const schema = new mongoose.Schema(
   {
+    googleId: {
+      type: String,
+      required: true
+    },
     firstName: {
       type: String,
       // required: [true, "Please enter your first name."],
@@ -13,8 +17,8 @@ const schema = new mongoose.Schema(
     },
     username: {
       type: String,
-      required: [true, "Please enter your username."],
-      minLength: [4,"Username length must be 4 or more char"]
+      // required: [true, "Please enter your username."],
+      minLength: [4, "Username length must be 4 or more char"]
     },
     slug: {
       type: String,
@@ -30,15 +34,15 @@ const schema = new mongoose.Schema(
     phone: {
       type: String,
       // required: [true, "Please enter your phone number."],
-      unique:[true, "Please enter valid phone number"],
+      unique: [true, "Please enter valid phone number"],
       minLength: [10, "Please enter valid phone number."],
     },
     location: {
-      address: String,  
+      address: String,
       city: String,
       state: String,
       pincode: Number
-    },   
+    },
     dob: {
       type: Date,
     },
@@ -60,13 +64,13 @@ const schema = new mongoose.Schema(
         type: String,
       },
     ],
-    otp:{
-      type:String,
-      default:"",
+    otp: {
+      type: String,
+      default: "",
     },
-    isVerified:{
-      type:Boolean,
-      default:false,
+    isVerified: {
+      type: Boolean,
+      default: false,
     },
     isActive: {
       type: Boolean,
@@ -75,10 +79,11 @@ const schema = new mongoose.Schema(
     isDeleted: {
       type: Boolean,
       default: false,
-    },
+    }
+  },
   {
     timestamps: true,
   }
 );
 
-export const User = m
+export const User = mongoose.model("User", schema)
