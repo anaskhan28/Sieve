@@ -1,9 +1,21 @@
 import Image from 'next/image'
+import Footer from './Homepage/Footer/Footer'
+import LandingFeatures from './Homepage/LandingFeature/LandingFeatures'
+import LandingHero from './Homepage/LandingHero/LandingHero'
+import LandingOffer from './Homepage/LandingOffer/LandingOffer'
+import LandingWorkCard from './Homepage/LandingWork/LandingWorkCard'
+import Navbar from './Homepage/Navbar/Navbar'
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      hello 
-    </main>
+    <>
+      <Navbar></Navbar>
+      <LandingHero></LandingHero>
+      <LandingOffer></LandingOffer>
+      <LandingFeatures></LandingFeatures>
+      <LandingWorkCard></LandingWorkCard>
+      <Footer></Footer>
+    </>
   )
 }

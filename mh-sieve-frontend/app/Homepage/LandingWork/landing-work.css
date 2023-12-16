@@ -1,0 +1,84 @@
+.LandingWorkCard-main {
+    width: 100%;
+    padding: 40px 200px;
+}
+
+.how-it-work-box {
+    width: 100%;
+    padding: 40px;
+    border-radius: 87.617px;
+    border: 0.913px solid rgba(146, 151, 153, 0.50);
+    background: #FFF;
+}
+
+.how-it-work-box-col-one {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.heading-how-it-work {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.subtitle-how-it-work {
+    width: 100%;
+    text-align: center;
+}
+
+.how-it-work-box-col-two {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.how-it-work-card {
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    border-radius: 30px;
+    background: #F5F5F7
+}
+
+.h-i-w-c-img {
+    width: 100%;
+    height: 250px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h-i-w-c-img img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.h-i-w-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 20pxn ;
+}
+
+.h-i-w-sub-title {
+    font-size: .9rem;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+.footer-part-two-row-two{
+    display: flex;
+    gap: 20px;
+}

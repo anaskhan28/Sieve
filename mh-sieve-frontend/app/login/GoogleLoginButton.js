@@ -1,6 +1,9 @@
 'use client'
 import React from 'react'
 import axios from 'axios'
+import Image from 'next/image';
+import './login.css'
+
 
 const GoogleLoginButton = () => {
     const handleGoogleLogin = async () => {
@@ -21,8 +24,32 @@ const GoogleLoginButton = () => {
     }
     return (
         <>
-            <button onClick={handleGoogleLogin}>login with google</button>
-            <button onClick={handleCheck}>check</button>
+            <button onClick={handleGoogleLogin} className='googlebutton'>
+                <div>
+                    <Image
+                        src="/google.png"
+                        alt="Description of the image"
+                        width={28}
+                        height={28}
+                    />
+                    Continue with Google
+                </div>
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#454545"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                >
+                    <path d="M18 8L22 12L18 16" />
+                    <path d="M2 12H22" />
+                </svg>
+            </button>
+            {/* <button onClick={handleCheck}>check</button> */}
         </>
     )
 }

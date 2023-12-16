@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.ring {
+    position: absolute;
+    width: 100%;
+    transform: rotatey(40deg);
+    margin-top: 50px;
+  
+}
+
+.hero-main {
+    position: relative;
+    width: 100%;
+    padding: auto;
+    /* height: 700px; */
+    display: flex;
+    padding: 50px 0px 20px 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* background: linear-gradient(112deg, #1E1E2D 0%, #422C6A 51.26%, #202030 102.3%); */
+    background: linear-gradient(120deg, #1E1E2D 11.01%, #422C6A 50.9%, #202030 94.62%);
+
+}
+
+.hero-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 20px; */
+    text-align: center;
+    z-index: 1;
+
+}
+
+.hero-text .slogan {
+    font-weight: 400;
+    color: #fff;
+    font-size: 3.2rem;
+    line-height: normal;
+    padding: 0 20px;
+    font-family: 'Quicksand', sans-serif;
+    /* border: solid; */
+}
+
+.hero-text h5 {
+    font-weight: 400;
+    line-height: normal;
+    color: #A799FF;
+    text-align: center;
+    /* border: solid; */
+
+}
+
+.hero-text h4 {
+    font-weight: 400;
+    color: #fff;
+    font-size: .8rem;
+    /* border: solid; */
+
+}
+
+.hero-image {
+    width: 100%;
+    height: 500px;
+    z-index: 1;
+    overflow: hidden;
+
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: slideUp 1s ease-in-out; /* Adjust the duration and timing function as needed */
+  }
+  
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%); /* Start from below the container */
+    }
+    100% {
+      transform: translateY(0); /* Move up to the original position */
+    }
+  }
+  
+.hero-join-link a {
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 12px 40px 0px rgba(0, 0, 0, 0.20);
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+}

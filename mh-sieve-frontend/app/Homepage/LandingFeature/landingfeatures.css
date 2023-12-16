@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+.LandingFeatures-main {
+    width: 100%;
+    padding: 50px 200px;
+}
+
+.LandingFeatures-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 100px;
+    border-radius: 96px;
+    border: 1px solid rgba(146, 151, 153, 0.50);
+}
+
+.LandingFeatures-box-col-one {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 100%;
+    gap: 20px;
+}
+
+.features-box {
+    text-align: center;
+    width: 100%;
+    padding: 40px 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #252525;
+    border: 1px solid rgba(146, 151, 153, 0.50);
+    border-radius: 25px;
+
+
+
+}
+
+.LandingFeatures-box-col-two {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.LandingFeatures-box-col-two-left {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 15px;
+    border: 1px solid #FFF;
+    background: #FFF;
+    box-shadow: 10px 20px 50px 0px rgba(229, 226, 226, 0.50);
+
+
+
+}
+
+.L-box-col-two-left-one {
+    font-size: .8rem;
+    padding: 5px;
+    background: #E8DBF6;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.L-box-col-two-left-two-text {
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.L-box-col-two-left-two {
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.LandingFeatures-box-col-two-right {
+    width: 100%;
+    border-radius: 15px;
+    background: #E8DBF6;
+    padding: 20px;
+
+}
+
+.LandingFeatures-box-col-two-right img {
+    width: 100%;
+
+}
+
+
+.languages-features {
+    width: 100%;
+    padding: 40px 200px;
+    gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.lang-box{
+    font-size: 1.2rem;
+    color: #535353;
+}
+.lang-box:first-child {
+    border-radius: 20px;
+    background: #F6F3F0;
+    padding: 16px;
+}
+
+.lang-box:nth-child(2) {
+    border-radius: 20px;
+    background: #F3F1FA;
+    padding: 16px;
+}
+
+.lang-box:nth-child(3) {
+
+    border-radius: 20px;
+    background: #EEF6F8;
+    padding: 16px;
+}
+
+.lang-box:nth-child(4) {
+  
+    border-radius: 20px;
+    background: #F1F2FA;
+    padding: 16px;
+}
+
+.lang-box:nth-child(5) {
+
+    border-radius: 20px;
+    background: #ECF2EE;
+    padding: 16px;
+}
+
+.lang-box:nth-child(6) {
+
+    border-radius: 20px;
+    background: #F9F1EE;
+    padding: 16px;
+}
