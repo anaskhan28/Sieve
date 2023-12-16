@@ -1,6 +1,7 @@
 'use client'
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import SideVideoList from './SideVideoList';
 
 async function getYouTubePlaylistInfo(playlistId, apiKey) {
     try {
@@ -35,7 +36,7 @@ async function getYouTubePlaylistInfo(playlistId, apiKey) {
     }
 }
 
-const VideoPlayer = ({ videoId, videoTitle }) => {
+export const VideoPlayer = ({ videoId, videoTitle }) => {
     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
     return (
@@ -54,20 +55,19 @@ const VideoPlayer = ({ videoId, videoTitle }) => {
 };
 
 const VideoList = ({ videos }) => {
+    console.log(videos);
+    const [index,setIndex] = useState(0)
+
     return (
         <div>
-            {videos.map((video, index) => (
-                <VideoPlayer key={index} videoId={video.videoId} videoTitle={video.videoTitle} />
-            ))}
+            {videos ?  <VideoPlayer key={index} videoId={videos[index]?.videoId} videoTitle={videos[index]?.videoTitle}/> : ""}
+            {videos.length <= 0 ? '' : <SideVideoList videos={videos} setIndex={setIndex} />}
         </div>
     );
 };
 
-
-const page = ({ params: { playListID } }) => {
-    const [videos, setVideos] = useState([])
-    //PLu0W_9lII9agtWvR_TZdb_r0dNI8-lDwG
-    //https://youtube.com/playlist?list=PLu0W_9lII9agtWvR_TZdb_r0dNI8-lDwG&si=_P0RtWTiR752xsnD
+const Page = ({ params: { playListID } }) => {
+    const [videos, setVideos] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -76,19 +76,22 @@ const page = ({ params: { playListID } }) => {
                 const apiKey = 'AIzaSyCMXYHm-mIW4h7A2863ujzkizWVO3R81MI';
                 const data = await getYouTubePlaylistInfo(playlistId, apiKey);
                 setVideos(data);
-                console.log(data)
+                console.log(data);
             } catch (error) {
                 console.error('Error:', error.message);
             }
-        }
-        fetchData()
-    }, [])
+        };
+        fetchData();
+    }, []);
+
     return (
         <div>
             <h1>YouTube Video Playlist</h1>
             <VideoList videos={videos} />
         </div>
-    )
-}
+    );
+};
 
-export default page
+export default Page;
+
+
