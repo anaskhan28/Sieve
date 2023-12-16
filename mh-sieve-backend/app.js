@@ -99,6 +99,10 @@ googleAuthRoutes(app)
 import playlistRoutes from "./routes/playlistRoutes.js";
 app.use("/api/playlists", playlistRoutes);
 
+// playlist route imports
+import questionRoutes from "./routes/questionRoutes.js";
+app.use("/api/questions", questionRoutes);
+
 // Admin Routes
 // import adminPrimaryRoutes from "./routes/admin/primaryRoute.js";
 // app.use("/api/admin/", adminPrimaryRoutes);
