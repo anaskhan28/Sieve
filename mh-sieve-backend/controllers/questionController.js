@@ -1,5 +1,5 @@
-import Question from '../models/Question.js';
-import catchAsyncError from '../utils/catchAsyncError.js';
+import {Question} from '../models/Question.js';
+import {catchAsyncError} from '../middlewares/catchAsyncError.js';
 
 // @desc    Create a new question
 // @route   POST /api/questions
