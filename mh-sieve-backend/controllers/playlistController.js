@@ -1,5 +1,5 @@
-import catchAsyncError from 'path/to/catchAsyncError.js';
-import Playlist from 'path/to/Playlist.js'; // Import the Playlist model
+import {catchAsyncError} from '../middlewares/catchAsyncError.js';
+import {Playlist} from '../models/Playlist.js';
 
 // @desc    Create a new playlist
 // @route   POST /api/playlists

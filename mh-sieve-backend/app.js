@@ -6,7 +6,7 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import rfs from "rotating-file-stream";
-import ErrorMiddleware from "./middleWares/Error.js";
+import ErrorMiddleware from "./middlewares/Error.js";
 import MongoStore from "connect-mongo";
 import passport from "passport";
 import morgan from "morgan";
