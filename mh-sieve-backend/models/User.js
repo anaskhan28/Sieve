@@ -29,60 +29,60 @@ const schema = new mongoose.Schema(
       type: String,
       // required: [true, "Please enter your email address."],
       validate: validator.isEmail,
-      unique: [true, "Please use official email address."],
+      // unique: [true, "Please use official email address."],
     },
-    phone: {
-      type: String,
-      // required: [true, "Please enter your phone number."],
-      unique: [true, "Please enter valid phone number"],
-      minLength: [10, "Please enter valid phone number."],
-    },
-    location: {
-      address: String,
-      city: String,
-      state: String,
-      pincode: Number
-    },
-    dob: {
-      type: Date,
-    },
-    gender: {
-      type: String,
-    },
-    description: {
-      type: String,
-      minLength: [10, "Description must be greater than 10 characters."],
-    },
-    profileImg: {
-      type: String,
-    },
-    className: {
-      type: String,
-    },
-    modules: [
-      {
-        type: String,
-      },
-    ],
-    otp: {
-      type: String,
-      default: "",
-    },
-    isVerified: {
-      type: Boolean,
-      default: false,
-    },
-    isActive: {
-      type: Boolean,
-      default: true,
-    },
-    isDeleted: {
-      type: Boolean,
-      default: false,
-    }
-  },
-  {
-    timestamps: true,
+    // phone: {
+    //   type: String,
+    //   // required: [true, "Please enter your phone number."],
+    //   unique: [true, "Please enter valid phone number"],
+    //   minLength: [10, "Please enter valid phone number."],
+    // },
+  //   location: {
+  //     address: String,
+  //     city: String,
+  //     state: String,
+  //     pincode: Number
+  //   },
+  //   dob: {
+  //     type: Date,
+  //   },
+  //   gender: {
+  //     type: String,
+  //   },
+  //   description: {
+  //     type: String,
+  //     minLength: [10, "Description must be greater than 10 characters."],
+  //   },
+  //   profileImg: {
+  //     type: String,
+  //   },
+  //   className: {
+  //     type: String,
+  //   },
+  //   modules: [
+  //     {
+  //       type: String,
+  //     },
+  //   ],
+  //   otp: {
+  //     type: String,
+  //     default: "",
+  //   },
+  //   isVerified: {
+  //     type: Boolean,
+  //     default: false,
+  //   },
+  //   isActive: {
+  //     type: Boolean,
+  //     default: true,
+  //   },
+  //   isDeleted: {
+  //     type: Boolean,
+  //     default: false,
+  //   }
+  // },
+  // {
+  //   timestamps: true,
   }
 );
 

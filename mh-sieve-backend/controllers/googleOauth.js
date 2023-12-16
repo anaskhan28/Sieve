@@ -16,18 +16,31 @@ const initPassportGoogle = () => {
                 callbackURL: 'http://localhost:8000/auth/google/callback',
             },
             async function (accessToken, refreshToken, profile, cb) {
-                // return console.log(profile)
+                console.log('entered')
                 try {
-                    // Find the user by googleId
                     let user = await User.findOne({ googleId: profile.id });
+                    console.log(user)
 
-                    // If the user doesn't exist, create a new user
                     if (!user) {
-                        user = new User({
-                            googleId: profile.id,
+                        console.log(user)
+                        console.log(profile)
+                        // Check if a user with the same email already exists
+                        user = await User.findOne({ email: profile.email });
+
+                        if (user) {
+                            // Update the existing user with the Google ID
+                            user.googleId = profile.id;
                             // Add other properties as needed
-                        });
-                        await user.save();
+                            await user.save();
+                        } else {
+                            // Create a new user
+                            user = new User({
+                                googleId: profile.id,
+                                email: profile.emails[0].value,
+                                // Add other properties as needed
+                            });
+                            await user.save();
+                        }
                     }
 
                     return cb(null, user);
@@ -38,6 +51,7 @@ const initPassportGoogle = () => {
         )
     );
 };
+
 
 passport.deserializeUser((googleId, done) => {
     User.findOne({ googleId })
