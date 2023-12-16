@@ -1,6 +1,7 @@
 import express from 'express';
 
 import {
+    addQuestion,
     createQuestion,
     getAllQuestions,
     getSingleQuestion
@@ -11,6 +12,10 @@ Router
     .route("/")
     .get(getAllQuestions)
     .post(createQuestion)
+
+Router
+    .route("/add")
+    .post(addQuestion)
 
 Router
     .route("/:id")

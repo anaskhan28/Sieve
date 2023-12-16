@@ -39,6 +39,32 @@ export const createQuestion = catchAsyncError(async (req, res) => {
     res.status(201).json({ success: true, data });
 });
 
+// @desc    add question to question set
+// @route   POST /api/questions/add
+// @access  Public
+export const addQuestion = catchAsyncError(async (req, res) => {
+    const {videoId} = req.params;
+    const {questions} = req.body;
+
+    if (questions.length < 1) {
+        return res.status(400).json({
+            success: false,
+            message: 'Questions are required',
+        });
+    }
+
+    const data = await Question.create({ 
+        videoId,
+        questions
+    });
+
+    if(data){
+        return res.status(200).json(data);
+    } else {
+        return res.status(503).json({message:"error saving questions"});
+    }
+});
+
 // @desc    Get all questions
 // @route   GET /api/questions
 // @access  Public
