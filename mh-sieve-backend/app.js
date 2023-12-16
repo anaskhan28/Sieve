@@ -95,6 +95,10 @@ app.use(morgan("combined", { stream: accessLogStream }));
 // app.use("/api/user/auth", googleOauth);
 googleAuthRoutes(app)
 
+// playlist route imports
+import playlistRoutes from "./routes/playlistRoutes.js";
+app.use("/api/playlists", playlistRoutes);
+
 // Admin Routes
 // import adminPrimaryRoutes from "./routes/admin/primaryRoute.js";
 // app.use("/api/admin/", adminPrimaryRoutes);

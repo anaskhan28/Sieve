@@ -6,6 +6,11 @@ const playlistSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  link: {
+    type: String,
+    unique: true,
+    required: true
+  },
   description: {
     type: String,
     required: true
@@ -21,6 +26,10 @@ const playlistSchema = new mongoose.Schema({
   }
 ],
   rating: {
+    type: Number,
+    default: 0
+  },
+  noOfRatings: {
     type: Number,
     default: 0
   },
