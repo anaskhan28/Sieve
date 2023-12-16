@@ -3,6 +3,7 @@ import express from 'express';
 import {
     addQuestion,
     createQuestion,
+    evaluateQuestion,
     getAllQuestions,
     getSingleQuestion
 } from '../controllers/questionController.js';
@@ -16,6 +17,10 @@ Router
 Router
     .route("/add")
     .post(addQuestion)
+
+Router
+    .route("/evaluate")
+    .post(evaluateQuestion)
 
 Router
     .route("/:id")

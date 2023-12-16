@@ -123,3 +123,38 @@ export const getSingleQuestion = catchAsyncError(async (req, res) => {
         res.status(200).json({ success: true, data: question });
     }
 });
+
+// @desc   evaluate a questions
+// @route  POST /api/questions/evaluate
+// @access Public
+export const evaluateQuestion = catchAsyncError(async (req, res) => {
+    const { videoId, answer } = req.body;
+
+    const videoFound = await Question.findOne({ videoId });
+
+    if (!videoFound) {
+        return res.status(404).json({
+            success: false,
+            message: 'Video not found',
+        });
+    }
+
+    const question = videoFound.questions.find(
+        (question) => question._id.toString() === answer.questionId
+    );
+
+    if (!question) {
+        return res.status(404).json({
+            success: false,
+            message: 'Question not found',
+        });
+    }
+
+    const correct = question.answer === answer.answer;
+
+    res.status(200).json({
+        success: true,
+        correct,
+        correctAnswer: question.answer,
+    });
+});
