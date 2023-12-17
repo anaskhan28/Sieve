@@ -6,7 +6,16 @@ import {Playlist} from '../models/Playlist.js';
 // @access  Public
 export const createPlaylist = catchAsyncError(async (req, res) => {
     const { playlistLink } = req.body; 
-    
+
+    // https://www.youtube.com/playlist?list=PLxCzCOWd7aiG58-6ris4Wa9OjEDfyvkNZ extract playlist id from this link
+    const playlistId = playlistLink.split('list=')[1];
+    if (!playlistId) {
+        return res.status(400).json({
+            success: false,
+            message: 'Invalid playlist link',
+        });
+    }
+
     const existingPlaylist = await Playlist.findOne({ link: playlistLink });
     if (existingPlaylist) {
         return res.status(400).json({
@@ -15,7 +24,7 @@ export const createPlaylist = catchAsyncError(async (req, res) => {
         });
     }
     
-    const playlist = await Playlist.create({ link: playlistLink });
+    const playlist = await Playlist.create({ link: playlistLink, playlistId });
 
     res.status(201).json({
         success: true,
@@ -101,7 +110,13 @@ export const getAllPlaylists = catchAsyncError(async (req, res) => {
 // @access  Public
 export const getSinglePlaylist = catchAsyncError(async (req, res) => {
     const { id } = req.params;
-    const playlist = await Playlist.findById(id).populate('comments videos');
+    let playlist;
+
+    if (id.length === 24) {
+        playlist = await Playlist.findById(id).populate('comments videos');
+    } else {
+        playlist = await Playlist.findOne({ playlistId: id }).populate('comments videos');
+    }
 
     if (!playlist) {
         return res.status(404).json({ error: 'Playlist not found' });
@@ -118,7 +133,13 @@ export const addComment = catchAsyncError(async (req, res) => {
     const { comment } = req.body;
     const userId = req.user._id;
 
-    const playlist = await Playlist.findById(id);
+    let playlist;
+
+    if (id.length === 24) {
+        playlist = await Playlist.findById(id);
+    } else {
+        playlist = await Playlist.findOne({ playlistId: id });
+    }
 
     if (!playlist) {
         return res.status(404).json({ error: 'Playlist not found' });

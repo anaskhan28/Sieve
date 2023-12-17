@@ -6,6 +6,11 @@ const playlistSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  playlistId: {
+    type: String,
+    unique: true,
+    required: true
+  },
   link: {
     type: String,
     unique: true,
