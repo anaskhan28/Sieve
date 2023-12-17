@@ -37,6 +37,23 @@ Sieve is a hackathon project developed at [Mumbai Hacks](https://mumbaihacks.com
 - Backend: Express.js, Node.js, MongoDB
 - AI Integration: GPT-4 (Chat), Hugging Face
 
+## Our Team
+
+Meet the brilliant minds behind Sieve:
+
+1. **Anas Khan**
+   - GitHub: [anaskhan28](https://github.com/anaskhan28)
+
+2. **Deep Bansode**
+   - GitHub: [DrasticCoder](https://github.com/DrasticCoder)
+
+3. **Uday Thakare**
+   - GitHub: [udaythakare](https://github.com/udaythakare)
+
+4. **Sangharaj Jadhav**
+   - GitHub: [MonkSangha ](https://github.com/MonkSangha )
+
+
 ## Installation
 
 1. Clone the repository:
