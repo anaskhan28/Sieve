@@ -3,9 +3,6 @@ import initPassportGoogle from '../controllers/googleOauth.js'
 initPassportGoogle()
 import express from 'express'
 import { checkLog } from '../controllers/loginController.js';
-// const router = express.Router()
-
-// router.route('/auth/google').get(passport.authenticate('google', { scope: ['profile', 'email'] }))
 
 let googleAuthRoutes = (app) => {
 

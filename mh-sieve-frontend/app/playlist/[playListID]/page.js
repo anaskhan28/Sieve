@@ -42,17 +42,20 @@ export const VideoPlayer = ({ videoId, videoTitle }) => {
     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
     return (
-        <div>
-            <h2>{videoTitle}</h2>
-            <iframe
-                title={videoTitle}
-                width="560"
-                height="315"
-                src={embedUrl}
-                frameBorder="0"
-                allowFullScreen
-            ></iframe>
-        </div>
+        <>
+            <div>
+                <h2>{videoTitle}</h2>
+                <iframe
+                    title={videoTitle}
+                    width="560"
+                    height="315"
+                    src={embedUrl}
+                    frameBorder="0"
+                    allowFullScreen
+                ></iframe>
+            </div>
+            <PlaylistRating />
+        </>
     );
 };
 
@@ -97,7 +100,6 @@ const Page = ({ params: { playListID } }) => {
                 <VideoList videos={videos} />
             </div>
         </>
-
     );
 };
 

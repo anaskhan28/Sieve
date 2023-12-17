@@ -1,0 +1,6 @@
+POST http://localhost:8000/GenerateMCQ
+Content-Type: application/json
+
+{
+  "videoDescription" : "Hey Everyone! Here I'm starting new course which was demanded by many many students. In this video you will get an intro about what is User Experience or UX."
+}
