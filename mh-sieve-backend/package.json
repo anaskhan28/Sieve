@@ -13,6 +13,7 @@
   "author": "Anas K, Deep B, Uday T",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -23,6 +24,7 @@
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.2",
+    "openai": "^4.22.1",
     "passport": "^0.7.0",
     "passport-google-oauth20": "^2.0.0",
     "rfs": "^10.0.0",

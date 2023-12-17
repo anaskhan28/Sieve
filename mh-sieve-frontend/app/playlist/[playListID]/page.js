@@ -4,7 +4,10 @@ import React, { useEffect, useState } from 'react';
 import SideVideoList from './SideVideoList';
 import './playlist-video.css';
 import Navbar from '@/app/Homepage/Navbar/Navbar';
-
+// import PlaylistRating from './PlaylistRating';
+import {PlaylistRating} from '../../component/Rating/Rating'
+import ModalComponent from '@/app/component/Modal/Modal';
+import ReccomendModal from '@/app/component/Modal/ReccomendModal'
 async function getYouTubePlaylistInfo(playlistId, apiKey) {
     try {
         const apiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
@@ -44,7 +47,7 @@ export const VideoPlayer = ({ videoId, videoTitle }) => {
     return (
         <>
             <div>
-                <h2>{videoTitle}</h2>
+                
                 <iframe
                     title={videoTitle}
                     width="560"
@@ -54,7 +57,12 @@ export const VideoPlayer = ({ videoId, videoTitle }) => {
                     allowFullScreen
                 ></iframe>
             </div>
-            <PlaylistRating />
+           <span className='flex flex-row'>
+           <span className=' text-xl'>{videoTitle}</span>
+          <ModalComponent/>
+          {/* <ReccomendModal/> */}
+           </span>
+
         </>
     );
 };

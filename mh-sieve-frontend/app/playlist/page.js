@@ -6,7 +6,7 @@ import Navbar from '../Homepage/Navbar/Navbar';
 import PlaylistSearch from '../PlaylistSearch/PlaylistSearch';
 import Image from 'next/image';
 import './playlist-page.css';
-
+import ReccomendModal from '@/app/component/Modal/ReccomendModal'
 async function getRandomYouTubePlaylists(apiKey, playlistIds) {
     try {
         const playlists = [];
@@ -36,6 +36,7 @@ async function getRandomYouTubePlaylists(apiKey, playlistIds) {
 
 
 async function getYouTubePlaylistInfo(playlistId, apiKey) {
+    
     try {
         const playlistResponse = await axios.get('https://www.googleapis.com/youtube/v3/playlists', {
             params: {
@@ -85,6 +86,7 @@ async function getYouTubePlaylistInfo(playlistId, apiKey) {
 }
 
 const PlaylistCard = ({ playlist }) => {
+    const rating = [4.5,6.5,7.5,5.5,6.8,9.6,8.5,4.6,7.8]
     const router = useRouter()
     const goToPlayListPage = () => {
         router.push('/playlist/' + playlist.playlistId)
@@ -112,7 +114,7 @@ const PlaylistCard = ({ playlist }) => {
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                     <div>
-                        8.5
+                    {Math.round(Math.random() * 10 * 10) / 10}
                     </div>
 
                 </div>
@@ -182,7 +184,15 @@ const Page = () => {
                     'PLhzIaPMgkbxDK0XplEg2SdbZu-yz3B_T-',
                     'PLmRclvVt5DtnqhXTJwd-oqVRwO3bLZCGV',
                     'PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD',
-                    'PLW-zSkCnZ-gBtmXf9AfRbA90GnBv7o2gS'
+                    'PLW-zSkCnZ-gBtmXf9AfRbA90GnBv7o2gS',
+                    "PLGjplNEQ1it_oTvuLRNqXfz_v_0pq6unW",
+                    "PL0rxPh2ovQP_JTqkFUtaZzBXzppx-VSWn",
+                    "PLu0W_9lII9agwh1XjRt242xIpHhPT2llg",
+                    "PLu0W_9lII9aiQiOwthuSvinxoflmhRxM3",
+                    "PLu0W_9lII9aiBNXUisDdSmfNbsKq407XC",
+                    "PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w",
+                    "PLu0W_9lII9aiXlHcLx-mDH1Qul38wD3aR"
+                  
                 ];
                 const data = await getRandomYouTubePlaylists(apiKey, playlistIds);
                 setPlaylists(data);
@@ -197,6 +207,7 @@ const Page = () => {
 
     return (
         <div>
+            <ReccomendModal/>
             <Navbar />
             <PlaylistSearch />
             <div className='playlist-main-page-master'>
