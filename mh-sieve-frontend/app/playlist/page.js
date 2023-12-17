@@ -2,6 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
+import Navbar from '../Homepage/Navbar/Navbar';
+import PlaylistSearch from '../PlaylistSearch/PlaylistSearch';
+import Image from 'next/image';
+import './playlist-page.css';
 
 async function getRandomYouTubePlaylists(apiKey, playlistIds) {
     try {
@@ -86,10 +90,34 @@ const PlaylistCard = ({ playlist }) => {
         router.push('/playlist/' + playlist.playlistId)
     }
     return (
-        <div onClick={goToPlayListPage}>
-            <h2>{playlist.playlistTitle}</h2>
-            <p>{playlist.playlistDescription}</p>
-            <img src={playlist.playlistThumbnail} alt={playlist.playlistTitle} />
+        <div onClick={goToPlayListPage} className="card-info">
+            <div className='thumb-img'>
+                <img src={playlist.playlistThumbnail} alt={playlist.playlistTitle} />
+            </div>
+            <div className='video-title-rating'>
+                <h2>{playlist.playlistTitle}</h2>
+                {/* <p>{playlist.playlistDescription}</p> */}
+                <div className='home-page-rating'>
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="#FFD700" 
+                        stroke="#FFD700"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                    >
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                    <div>
+                        8.5
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     );
 };
@@ -125,11 +153,18 @@ const VideoList = ({ videos }) => {
 
 const PlaylistList = ({ playlists }) => {
     return (
-        <div>
-            {playlists.map((playlist, index) => (
-                <PlaylistCard key={index} playlist={playlist} />
-            ))}
-        </div>
+        <>
+            <div className='playlist-grid-main'>
+
+                {playlists.map((playlist, index) => (
+                    <div className='playlist-card'>
+                        <PlaylistCard key={index} playlist={playlist} />
+                    </div>
+                ))}
+
+            </div>
+        </>
+
     );
 };
 
@@ -162,7 +197,39 @@ const Page = () => {
 
     return (
         <div>
-            <h1>Random YouTube Playlists</h1>
+            <Navbar />
+            <PlaylistSearch />
+            <div className='playlist-main-page-master'>
+                <div className='label'>
+                    <Image
+                        src="/category.png"
+                        alt="Description of the image"
+                        width={24}
+                        height={24}
+                    />
+                    Category
+                </div>
+                <div className='category-box'>
+                    <div className='cat-box'>
+                        Frontend development
+                    </div>
+                    <div className='cat-box'>
+                        Backend development
+                    </div>
+                    <div className='cat-box'>
+                        UI/UX design
+                    </div>
+                    <div className='cat-box'>
+                        Android Development
+                    </div>
+                    <div className='cat-box'>
+                        Blockchain Development
+                    </div>
+                    <div className='cat-box'>
+                        Flutter Development
+                    </div>
+                </div>
+            </div>
             <PlaylistList playlists={playlists} />
         </div>
     );

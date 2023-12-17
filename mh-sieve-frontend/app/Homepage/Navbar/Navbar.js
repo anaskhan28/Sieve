@@ -19,7 +19,7 @@ function Navbar() {
                 <Link href="">
                     home
                 </Link>
-                <Link href="">
+                <Link href="/playlist">
                     playlist
                 </Link>
                 <Link href="/login">
