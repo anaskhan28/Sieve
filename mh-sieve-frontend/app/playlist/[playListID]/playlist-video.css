@@ -1,14 +1,17 @@
-*{
+* {
     box-sizing: border-box;
 }
-.video-main{
+
+.video-main {
     width: 100%;
     padding: 10px;
 }
-.video-play{
+
+.video-play {
     width: 100%;
 }
-.yt-video-main{
+
+.yt-video-main {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -16,19 +19,30 @@
     gap: 20px;
 }
 
-.video-div{
+.video-div {
     width: 72%;
-    border: solid;
+    /* border: solid; */
     padding: 20px;
-}
-
-.sidebar-playlist{
-    width: 35%;
-    padding: 20px;
+    box-sizing: border-box;
 
 }
 
-.sidebar-playlist-main{
+iframe {
+    width: 100%;
+    /* Make the iframe take 100% of its parent's width */
+    height: 520px;
+    border-radius: 10px;
+    /* Set the desired height */
+}
+
+.sidebar-playlist {
+    width: 28%;
+    /* Adjusted width to give more space to the playlist */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Ensure padding is included in the width calculation */
+}
+.sidebar-playlist-main {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -37,13 +51,158 @@
     overflow: hidden;
     overflow-y: scroll;
     padding: 20px;
-    border-radius: 20px;
-    border: 1px solid #252525;
+    border: 1px solid #c7c7c7;
+
+    /* Style the scrollbar for WebKit browsers (Chrome, Safari) */
+    scrollbar-color: #808080 #f0f0f0; /* thumb color, track color */
+
+    /* Style the scrollbar for Firefox */
+    scrollbar-width: thin;
 }
 
-.video-title{
+.sidebar-playlist-main::-webkit-scrollbar {
+    width: 10px; /* Adjust the width of the scrollbar */
+}
+
+.sidebar-playlist-main::-webkit-scrollbar-thumb {
+    background-color: #808080; /* Adjust the thumb color */
+}
+
+.sidebar-playlist-main::-webkit-scrollbar-track {
+    background-color: #f0f0f0; /* Adjust the track color */
+}
+
+/* Style the scrollbar for Firefox */
+.sidebar-playlist-main::-moz-scrollbar {
+    width: 10px; /* Adjust the width of the scrollbar */
+}
+
+.sidebar-playlist-main::-moz-scrollbar-thumb {
+    background-color: #808080; /* Adjust the thumb color */
+}
+
+.sidebar-playlist-main::-moz-scrollbar-track {
+    background-color: #f0f0f0; /* Adjust the track color */
+}
+.video-title {
     font-size: 1rem;
     padding: 10px 10px;
     background-color: #f5f5f5;
     border-radius: 5px;
+}
+.video-title:hover {
+    background-color: #e2e2e2;
+    cursor: pointer;
+}
+.text-xl {
+    width: 75%;
+    /* border: solid; */
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #252525;
+}
+
+.flex-flex-row {
+    width: 100%;
+    /* border: solid; */
+    padding: 5px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #b9b9b9;
+    padding-bottom: 40px;
+}
+
+
+.star-rating-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    /* Adjust the font size as needed */
+    color: #f5c542;
+    /* Set the star color to yellow or any other color you prefer */
+    transition: color 0.3s ease;
+    /* Add a smooth color transition */
+    gap: 15px;
+    border-radius: 5px;
+    border: #f5c542 1px solid;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.star-rating-button:hover {
+    color: #dbac2a;
+    /* Set the color for the hover state */
+    border: #d8ab31 1px solid;
+}
+
+
+
+
+
+
+
+/* components/CommentSection.module.css */
+.container {
+    width: 100%;
+    padding: 20px;
+    
+}
+
+.container h2 {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+textarea{
+    padding: 14px 10px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.comment-input {
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.comment-button {
+    background-color: #816df9;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.comment-list {
+    margin-top: 16px;
+}
+
+.comment-item {
+    border: 1px solid #ddd;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+
+.comment-text {
+    margin: 0;
+    font-size: 16px;
+}
+
+.video-div img{
+   width: 80%;
+   height: 100%;
+   object-fit: contain;
 }

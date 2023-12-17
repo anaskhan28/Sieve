@@ -16,6 +16,7 @@ const customStyles = {
 
 
 
+
 const ModalComponent = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -33,9 +34,11 @@ const ModalComponent = () => {
 
   return (
     <div>
-      <button onClick={openModal}><FaRegStar/></button>
+      <button onClick={openModal} className="star-rating-button">
+       Rate this  <FaRegStar /> 
+      </button>
       <Modal
-       
+
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}

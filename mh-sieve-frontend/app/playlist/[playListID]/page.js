@@ -5,9 +5,11 @@ import SideVideoList from './SideVideoList';
 import './playlist-video.css';
 import Navbar from '@/app/Homepage/Navbar/Navbar';
 // import PlaylistRating from './PlaylistRating';
-import {PlaylistRating} from '../../component/Rating/Rating'
+import { PlaylistRating } from '../../component/Rating/Rating'
 import ModalComponent from '@/app/component/Modal/Modal';
 import ReccomendModal from '@/app/component/Modal/ReccomendModal'
+import CommentSection from './CommentSection';
+import Image from 'next/image';
 async function getYouTubePlaylistInfo(playlistId, apiKey) {
     try {
         const apiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
@@ -47,7 +49,6 @@ export const VideoPlayer = ({ videoId, videoTitle }) => {
     return (
         <>
             <div>
-                
                 <iframe
                     title={videoTitle}
                     width="560"
@@ -56,12 +57,13 @@ export const VideoPlayer = ({ videoId, videoTitle }) => {
                     frameBorder="0"
                     allowFullScreen
                 ></iframe>
+                <span className='flex-flex-row'>
+                    <span className=' text-xl'>{videoTitle}</span>
+                    <ModalComponent />
+                    {/* <ReccomendModal/> */}
+                </span>
             </div>
-           <span className='flex flex-row'>
-           <span className=' text-xl'>{videoTitle}</span>
-          <ModalComponent/>
-          {/* <ReccomendModal/> */}
-           </span>
+
 
         </>
     );
@@ -75,6 +77,13 @@ const VideoList = ({ videos }) => {
         <div className='yt-video-main'>
             <div className='video-div'>
                 {videos ? <VideoPlayer className="video-play" key={index} videoId={videos[index]?.videoId} videoTitle={videos[index]?.videoTitle} /> : ""}
+                <CommentSection />
+                <Image
+                    src="/comments.png"
+                    alt="Description of the image"
+                    width={500}
+                    height={300}
+                />
             </div>
             <div className='sidebar-playlist'>
                 {videos.length <= 0 ? '' : <SideVideoList videos={videos} setIndex={setIndex} />}
