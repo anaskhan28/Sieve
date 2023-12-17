@@ -10,6 +10,7 @@ import ModalComponent from '@/app/component/Modal/Modal';
 import ReccomendModal from '@/app/component/Modal/ReccomendModal'
 import CommentSection from './CommentSection';
 import Image from 'next/image';
+import Comments from './Comments';
 async function getYouTubePlaylistInfo(playlistId, apiKey) {
     try {
         const apiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
@@ -78,12 +79,7 @@ const VideoList = ({ videos }) => {
             <div className='video-div'>
                 {videos ? <VideoPlayer className="video-play" key={index} videoId={videos[index]?.videoId} videoTitle={videos[index]?.videoTitle} /> : ""}
                 <CommentSection />
-                <Image
-                    src="/comments.png"
-                    alt="Description of the image"
-                    width={500}
-                    height={300}
-                />
+                 <Comments></Comments>
             </div>
             <div className='sidebar-playlist'>
                 {videos.length <= 0 ? '' : <SideVideoList videos={videos} setIndex={setIndex} />}

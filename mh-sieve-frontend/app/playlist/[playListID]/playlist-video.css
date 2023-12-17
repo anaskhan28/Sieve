@@ -206,3 +206,28 @@ textarea{
    height: 100%;
    object-fit: contain;
 }
+
+/* Add this CSS to your existing styles or create a new style file */
+
+.comment {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .comment strong {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .comment p {
+    margin: 0;
+  }
+  
+  .comment small {
+    color: #666;
+    font-size: 12px;
+  }
+  
