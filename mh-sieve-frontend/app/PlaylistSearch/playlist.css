@@ -1,0 +1,33 @@
+.playlist-search-master {
+    width: 100%;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playlist-search-master .search-container {
+    width: 600px;
+    display: flex;
+    gap: 15px;
+    padding: 10px;
+}
+
+.playlist-search-master .search-container input {
+    width: 80%;
+    padding: 12px 10px;
+    border: #252525 1px solid;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.playlist-search-master .search-container button {
+    border-radius: 11px;
+    background: #756EF4;
+    padding: 5px 12px;
+    font-size: 1rem;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}

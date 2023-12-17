@@ -2,6 +2,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import SideVideoList from './SideVideoList';
+import './playlist-video.css';
+import Navbar from '@/app/Homepage/Navbar/Navbar';
 
 async function getYouTubePlaylistInfo(playlistId, apiKey) {
     try {
@@ -40,28 +42,35 @@ export const VideoPlayer = ({ videoId, videoTitle }) => {
     const embedUrl = `https://www.youtube.com/embed/${videoId}`;
 
     return (
-        <div>
-            <h2>{videoTitle}</h2>
-            <iframe
-                title={videoTitle}
-                width="560"
-                height="315"
-                src={embedUrl}
-                frameBorder="0"
-                allowFullScreen
-            ></iframe>
-        </div>
+        <>
+            <div>
+                <h2>{videoTitle}</h2>
+                <iframe
+                    title={videoTitle}
+                    width="560"
+                    height="315"
+                    src={embedUrl}
+                    frameBorder="0"
+                    allowFullScreen
+                ></iframe>
+            </div>
+            <PlaylistRating />
+        </>
     );
 };
 
 const VideoList = ({ videos }) => {
     console.log(videos);
-    const [index,setIndex] = useState(0)
+    const [index, setIndex] = useState(0)
 
     return (
-        <div>
-            {videos ?  <VideoPlayer key={index} videoId={videos[index]?.videoId} videoTitle={videos[index]?.videoTitle}/> : ""}
-            {videos.length <= 0 ? '' : <SideVideoList videos={videos} setIndex={setIndex} />}
+        <div className='yt-video-main'>
+            <div className='video-div'>
+                {videos ? <VideoPlayer className="video-play" key={index} videoId={videos[index]?.videoId} videoTitle={videos[index]?.videoTitle} /> : ""}
+            </div>
+            <div className='sidebar-playlist'>
+                {videos.length <= 0 ? '' : <SideVideoList videos={videos} setIndex={setIndex} />}
+            </div>
         </div>
     );
 };
@@ -85,10 +94,12 @@ const Page = ({ params: { playListID } }) => {
     }, []);
 
     return (
-        <div>
-            <h1>YouTube Video Playlist</h1>
-            <VideoList videos={videos} />
-        </div>
+        <>
+            <Navbar />
+            <div className='video-main'>
+                <VideoList videos={videos} />
+            </div>
+        </>
     );
 };
 
